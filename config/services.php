@@ -48,6 +48,6 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_SECRET_ID'),
-        'redirect' => 'login/facebook/callback',
+        'redirect' => 'https://learning.dev/login/facebook/callback',
     ],
 ];
