@@ -43,7 +43,7 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_SECRET_ID'),
-        'redirect' => 'login/github/callback',
+        'redirect' => 'https://learning.dev/login/github/callback',
     ],
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
