@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('jumbotron')
+    @include('partials.jumbotrom', [
+        "title" => __("Accede a los cursos"),
+        "icon" => 'th',
+    ])
+@endsection
+
 @section('content')
     <div class="pl-5 pr-5">
         <div class="row justify-content-center">

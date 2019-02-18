@@ -48,4 +48,8 @@ class Course extends Model
     {
         return $this->belongsTo(Teacher::class);
     }
+
+    public function getRatingAttribute() {
+        return $this->reviews()->avg('rating');
+    }
 }
