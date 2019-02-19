@@ -15,6 +15,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::group(["prefix" => "courses"], function () {
+    Route::get("/{course}", "CourseController@show")->name("courses.detail");
+});
+
+
 Route::get('/images/{path}/{attachment}', function ($path, $attachment) {
     $file = sprintf('storage/%s/%s', $path, $attachment);
     if (file_exists($file)) {

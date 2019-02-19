@@ -10,8 +10,14 @@ class Course extends Model
     const PENDING = 2;
     const REJECTED = 3;
 
-    public function pathAttachment() {
+    public function pathAttachment()
+    {
         return "/images/courses/" . $this->picture;
+    }
+
+    public function getRouteKeyName()
+    {
+        return "slug";
     }
 
     public function category()
@@ -49,7 +55,8 @@ class Course extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public function getRatingAttribute() {
+    public function getRatingAttribute()
+    {
         return $this->reviews()->avg('rating');
     }
 }
