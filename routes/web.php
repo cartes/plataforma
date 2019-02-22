@@ -1,7 +1,5 @@
 <?php
 
-use Intervention\Image\Facades\Image;
-
 Route::get('/set_language/{lang}', 'Controller@setLanguage')->name('set_language');
 
 Route::get('/login/{driver}', 'Auth\LoginController@redirectToProvider')->name('social_auth');
@@ -23,7 +21,8 @@ Route::group(["prefix" => "courses"], function () {
 
 Route::get('/images/{path}/{attachment}', function ($path, $attachment) {
     $file = sprintf('storage/%s/%s', $path, $attachment);
-    if (file_exists($file)) {
-        return Image::make($file)->response();
+
+    if (File::exists($file)) {
+        return Intervention\Image\Facades\Image::make($file)->response();
     }
 });

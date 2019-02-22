@@ -10,6 +10,8 @@ class Course extends Model
     const PENDING = 2;
     const REJECTED = 3;
 
+    protected $withCount = ['reviews', 'students'];
+
     public function pathAttachment()
     {
         return "/images/courses/" . $this->picture;
@@ -35,11 +37,6 @@ class Course extends Model
         return $this->hasMany(Goal::class)->select('id', 'course_id', 'goal');
     }
 
-    public function reviews()
-    {
-        return $this->hasMany(Review::class)->select('id', 'user_id', 'course_id', 'rating', 'comment', 'created_at');
-    }
-
     public function requirements()
     {
         return $this->hasMany(Requirement::class)->select('id', 'course_id', 'requirement');
@@ -58,5 +55,18 @@ class Course extends Model
     public function getRatingAttribute()
     {
         return $this->reviews()->avg('rating');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class)->select('id', 'user_id', 'course_id', 'rating', 'comment', 'created_at');
+    }
+
+    public function relatedCourses() {
+        return Course::with('reviews')->whereCategoryId( $this->category->id )
+            ->where('id', '!=', $this->id )
+            ->latest()
+            ->limit(6)
+            ->get();
     }
 }
