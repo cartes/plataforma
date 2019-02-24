@@ -4,6 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Review
+ *
+ * @property-read \App\Course $course
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Review query()
+ * @mixin \Eloquent
+ */
 class Review extends Model
 {
     protected $fillable = ['course_id', 'user_id', 'rating', 'comment'];

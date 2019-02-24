@@ -28,6 +28,7 @@ class CourseController extends Controller
 
 
         $related = $course->relatedCourses();
-        dd($related);
+
+        return view("courses.detail", compact('course', 'related'));
     }
 }
