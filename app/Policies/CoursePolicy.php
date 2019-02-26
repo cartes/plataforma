@@ -23,6 +23,6 @@ class CoursePolicy
 
     public function inscribe(User $user, Course $course)
     {
-        return $course->students->contains($user->student->id);
+        return ! $course->students->contains($user->student->id);
     }
 }
