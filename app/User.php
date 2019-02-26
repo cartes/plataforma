@@ -20,6 +20,7 @@ use Laravel\Cashier\Billable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User query()
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Cashier\Subscription[] $subscriptions
  */
 class User extends Authenticatable
 {

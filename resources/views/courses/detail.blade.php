@@ -10,6 +10,7 @@
             @include("partials.courses.goals", ["goals" => $course->goals])
             @include("partials.courses.requirement", ["requirements" => $course->requirements])
             @include("partials.courses.description")
+            @include("partials.courses.related")
         </div>
     </div>
 @endsection
