@@ -15,30 +15,32 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        @include("partials.navigation")
+@include("partials.navigation")
 
-        @yield('jumbotron')
+@yield('jumbotron')
+<div id="app">
+    <stripe-form></stripe-form>
 
-        <main class="py-4">
-            @if(session('message'))
-                <div class="row justify-content-center">
-                    <div class="col-md-10">
-                        <div class="alert alert-{{session('message')[0]}}">
-                            <h4 class="alert-heading">{{__('Mensaje Informativo')}}</h4>
-                            <p>{{session('message')[1]}}</p>
-                        </div>
+    <main class="py-4">
+        @if(session('message'))
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="alert alert-{{session('message')[0]}}">
+                        <h4 class="alert-heading">{{__('Mensaje Informativo')}}</h4>
+                        <p>{{session('message')[1]}}</p>
                     </div>
                 </div>
-            @endif
-            @yield('content')
-        </main>
-    </div>
+            </div>
+        @endif
+        @yield('content')
+    </main>
+</div>
 </body>
 </html>
