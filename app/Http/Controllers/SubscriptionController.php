@@ -20,7 +20,7 @@ class SubscriptionController extends Controller
 
     public function plans()
     {
-        return view('subscriptions.plans');
+        return view("subscriptions.plans");
     }
 
     public function processSubscription()
